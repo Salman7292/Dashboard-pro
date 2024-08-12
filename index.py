@@ -11,8 +11,8 @@ from streamlit_option_menu import option_menu
 
 
 st.set_page_config(
-        page_icon="https://www.svgrepo.com/show/390209/bug-insect-code-development.svg",
-        page_title="Code Debugger | app",
+        page_icon="Logo4.png",
+        page_title="DashBoard",
         layout="wide"
 
         
