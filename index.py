@@ -11,8 +11,8 @@ from streamlit_option_menu import option_menu
 
 
 st.set_page_config(
-        page_icon="Logo4.png",
-        page_title="DashBoard",
+        page_icon="Logo4",
+        page_title="Dashboard",
         layout="wide"
 
         
@@ -84,11 +84,16 @@ def find_highly_correlated_columns(df, threshold=0.8):
     return highly_corr_pairs
 
 
+def extract_numerical_columns(df):
+
+    # Select columns with numerical data types
+    numerical_columns = df.select_dtypes(include=['number']).columns.tolist()
+    return numerical_columns
 
 
 # Function to plot graphs for a continuous variable
 def numarical_Features(df, column_name):
-    Line_Break(100)
+    
     col_name=column_name[0]
 
     st.title(f"Analysis for {col_name}")
@@ -131,6 +136,9 @@ def numarical_Features(df, column_name):
 
     Line_Break(100)
 
+    numrical_col=extract_numerical_columns(df)
+    numrical_dataset=df[numrical_col]
+
     # Heatmap for correlation
     st.write("##### Correlation Heatmap")
     # Example usage of the function in your Streamlit app
@@ -139,9 +147,9 @@ def numarical_Features(df, column_name):
                                       ['Viridis', 'Cividis', 'Plasma', 'Inferno', 'Magma', 'Rainbow', 'RdBu'], 
                                       key=f"heatmap_colorscale_{col_name}")
     heatmap_fig = go.Figure(data=go.Heatmap(
-        z=df.corr().values,
-        x=df.corr().columns,
-        y=df.corr().index,
+        z=numrical_dataset.corr().values,
+        x=numrical_dataset.corr().columns,
+        y=numrical_dataset.corr().index,
         colorscale=heatmap_colorscale,
         zmin=-1, zmax=1
     ))
@@ -651,30 +659,21 @@ p, ol, ul, dl {{
     padding: 20px;
 }}
 
-.st-emotion-cache-ue6h4q {{
-    font-size: 14px;
-    color: rgb(49, 51, 63);
-    display: flex;
-    visibility: visible;
-    margin-bottom: 0.25rem;
-    height: auto;
-    min-height: 1.5rem;
-    vertical-align: middle;
-    flex-direction: row;
-    -webkit-box-align: center;
-    align-items: center;
-    display: none;
-}}
-
-# .st-emotion-cache-1o2fhjg {{
+# .st-emotion-cache-ue6h4q {{
+#     font-size: 14px;
+#     color: rgb(49, 51, 63);
 #     display: flex;
+#     visibility: visible;
+#     margin-bottom: 0.25rem;
+#     height: auto;
+#     min-height: 1.5rem;
+#     vertical-align: middle;
+#     flex-direction: row;
 #     -webkit-box-align: center;
 #     align-items: center;
-#     padding-top: 0px;
-#     padding-bottom: 0px;
-#     background: #263238;
-#     color: navajowhite;
+#     display: none;
 # }}
+
 
 </style>
 """
