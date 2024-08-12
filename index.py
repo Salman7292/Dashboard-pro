@@ -676,10 +676,10 @@ p, ol, ul, dl {{
     color: navajowhite;
 }}
 
-.st-cg {{
-    caret-color: rgb(23 24 27);
-    background: #263238;
-}}
+# .st-cg {{
+#     caret-color: rgb(23 24 27);
+#     background: #263238;
+# }}
 </style>
 """
 
