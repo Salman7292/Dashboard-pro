@@ -666,20 +666,16 @@ p, ol, ul, dl {{
     display: none;
 }}
 
-.st-emotion-cache-1o2fhjg {{
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    background: #263238;
-    color: navajowhite;
-}}
-
-# .st-cg {{
-#     caret-color: rgb(23 24 27);
+# .st-emotion-cache-1o2fhjg {{
+#     display: flex;
+#     -webkit-box-align: center;
+#     align-items: center;
+#     padding-top: 0px;
+#     padding-bottom: 0px;
 #     background: #263238;
+#     color: navajowhite;
 # }}
+
 </style>
 """
 
