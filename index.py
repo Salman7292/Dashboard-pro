@@ -11,14 +11,34 @@ from streamlit_option_menu import option_menu
 
 
 st.set_page_config(
-        page_icon="Logo4",
-        page_title="Dashboard",
+        page_icon="Logo4.png",
+        page_title="Dashboard Pro",
         layout="wide"
 
         
         
             )
+file_upload_sucuss=0
 
+
+
+def Line_Break(width):
+        line_code=f"""
+
+            <hr style="border: none; height: 2px;width: {width}%; background: linear-gradient(90deg, rgba(216,82,82,1) 13%, rgba(237,242,6,1) 57%, rgba(226,0,255,1) 93%); margin: 0 auto;" />
+
+
+                    """
+        st.markdown(line_code,unsafe_allow_html=True)
+
+def Line_Break_start(width):
+        line_code=f"""
+
+            <hr style="border: none; height: 2px;width: {width}%; background: linear-gradient(90deg, rgba(216,82,82,1) 13%, rgba(237,242,6,1) 57%, rgba(226,0,255,1) 93%);" />
+
+
+                    """
+        st.markdown(line_code,unsafe_allow_html=True)
 
 def heading(heading,color):
         heading_code=f"""
@@ -137,7 +157,10 @@ def numarical_Features(df, column_name):
     Line_Break(100)
 
     numrical_col=extract_numerical_columns(df)
+
     numrical_dataset=df[numrical_col]
+
+
 
     # Heatmap for correlation
     st.write("##### Correlation Heatmap")
@@ -160,9 +183,9 @@ def numarical_Features(df, column_name):
         width=800,
         height=600,
     )
-    heatmap_fig.update_traces(text=df.corr().values, texttemplate='%{text:.2f}', textfont_size=12)
+    heatmap_fig.update_traces(text=numrical_dataset.corr().values, texttemplate='%{text:.2f}', textfont_size=12)
     st.plotly_chart(heatmap_fig)
-    
+    Line_Break(100)
 
 
 
@@ -178,23 +201,7 @@ def numarical_Features(df, column_name):
 
 
 
-def Line_Break(width):
-        line_code=f"""
 
-            <hr style="border: none; height: 2px;width: {width}%; background: linear-gradient(90deg, rgba(216,82,82,1) 13%, rgba(237,242,6,1) 57%, rgba(226,0,255,1) 93%); margin: 0 auto;" />
-
-
-                    """
-        st.markdown(line_code,unsafe_allow_html=True)
-
-def Line_Break_start(width):
-        line_code=f"""
-
-            <hr style="border: none; height: 2px;width: {width}%; background: linear-gradient(90deg, rgba(216,82,82,1) 13%, rgba(237,242,6,1) 57%, rgba(226,0,255,1) 93%);" />
-
-
-                    """
-        st.markdown(line_code,unsafe_allow_html=True)
 
 
 def missing_values_count(data):
@@ -708,7 +715,7 @@ with st.sidebar:
     heading("h3","White")
     Line_Break(100)
 
-    file_upload_sucuss=0
+    
     # Expander for file upload
     with st.expander("Insert your Data Here"):
         # DataSet_name=st.text_input(placeholder="DataSet Name",label="Insert Dataset Name")
@@ -725,7 +732,7 @@ with st.sidebar:
   
                 st.success("File uploaded successfully!")
                 
-                file_upload_sucuss=1
+     
 
 
                 
@@ -1044,10 +1051,12 @@ def Main_PAGE(data):
                     colmuns_datatype=check_datatype(data,column)
 
                     if colmuns_datatype =="object":
+                        
                         catgorical_varible(data,column)
 
 
                     elif colmuns_datatype =="float64" or colmuns_datatype =="int64":
+                        
 
                         numarical_Features(data,[column])
         
