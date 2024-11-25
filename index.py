@@ -133,7 +133,7 @@ def numarical_Features(df, column_name):
         st.write(f"##### Outliers in {col_name}")
         box_color = st.color_picker("Select color for Box Plot", "#ff7f0e", key=f"box_color_{col_name}")
         box_fig = px.box(df, y=column_name, title=f"Box Plot of {col_name}", color_discrete_sequence=[box_color])
-        st.plotly_chart(box_fig,key="8")
+        st.plotly_chart(box_fig)
 
     Line_Break(100)
     # Scatter Plot (If there are at least two columns)
