@@ -126,7 +126,7 @@ def numarical_Features(df, column_name):
         st.write(f"##### Distribuation Of {col_name}")
         hist_color = st.color_picker("Select color for Histogram", "#1f77b4", key=f"hist_color_{column_name}")
         hist_fig = px.histogram(df, x=column_name, nbins=30, title=f"Histogram of {col_name}", color_discrete_sequence=[hist_color])
-        st.plotly_chart(hist_fig,key="77")
+        st.plotly_chart(hist_fig,key="salamn")
 
     with graph2:
         # Color selection for Box Plot
