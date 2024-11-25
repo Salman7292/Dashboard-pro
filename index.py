@@ -126,14 +126,14 @@ def numarical_Features(df, column_name):
         st.write(f"##### Distribuation Of {col_name}")
         hist_color = st.color_picker("Select color for Histogram", "#1f77b4", key=f"hist_color_{column_name}")
         hist_fig = px.histogram(df, x=column_name, nbins=30, title=f"Histogram of {col_name}", color_discrete_sequence=[hist_color])
-        st.plotly_chart(hist_fig)
+        st.plotly_chart(hist_fig,key="7")
 
     with graph2:
         # Color selection for Box Plot
         st.write(f"##### Outliers in {col_name}")
         box_color = st.color_picker("Select color for Box Plot", "#ff7f0e", key=f"box_color_{col_name}")
         box_fig = px.box(df, y=column_name, title=f"Box Plot of {col_name}", color_discrete_sequence=[box_color])
-        st.plotly_chart(box_fig)
+        st.plotly_chart(box_fig,key="8")
 
     Line_Break(100)
     # Scatter Plot (If there are at least two columns)
@@ -151,7 +151,7 @@ def numarical_Features(df, column_name):
             yaxis_title=scatter_column  # Set y-axis title
         )
         scatter_fig.update_traces(texttemplate='%{x} <br>%{y}', textposition='top center')
-        st.plotly_chart(scatter_fig)
+        st.plotly_chart(scatter_fig,key="9")
   # Heatmap for correlation
 
     Line_Break(100)
@@ -184,7 +184,7 @@ def numarical_Features(df, column_name):
         height=600,
     )
     heatmap_fig.update_traces(text=numrical_dataset.corr().values, texttemplate='%{text:.2f}', textfont_size=12)
-    st.plotly_chart(heatmap_fig)
+    st.plotly_chart(heatmap_fig,key="10")
     Line_Break(100)
 
 
@@ -285,7 +285,7 @@ def plot_data_type_distribution(dataframe):
     )
 
     # Display the chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="11")
 
 
 
@@ -324,7 +324,7 @@ def plot_data_type_distribution_barchart(dataframe):
     )
 
     # Display the chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="12")
 
 def plot_missing_values_percentage(dataframe):
     # Calculate the percentage of missing values in each column
@@ -464,7 +464,7 @@ def plot_class_distribution_pie_chart(df, column_name):
                  color_discrete_sequence=custom_colors)
     
     # Display the pie chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="13")
 
 
 
