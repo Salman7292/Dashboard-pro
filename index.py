@@ -356,7 +356,7 @@ def plot_missing_values_percentage(dataframe):
     )
 
     # Display the chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="1")
 
 
 def plot_missing_values_count_barchart(dataframe):
@@ -393,7 +393,7 @@ def plot_missing_values_count_barchart(dataframe):
     )
 
     # Display the chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="2")
 
 def plot_duplicate_vs_unique_pie_chart(df):
     # Identify duplicate rows
@@ -417,7 +417,7 @@ def plot_duplicate_vs_unique_pie_chart(df):
     )
 
     # Display the pie chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="3")
 
 
 
@@ -443,7 +443,7 @@ def plot_duplicate_vs_unique_bar_chart(df):
     )
 
     # Display the bar chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="4")
 
 
 
@@ -483,7 +483,7 @@ def plot_class_distribution_bar_chart(df, column_name):
                  color_discrete_sequence=px.colors.qualitative.Plotly)  # Use Plotly's color sequence
     
     # Display the bar chart in Streamlit
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,key="5")
 
 
 
